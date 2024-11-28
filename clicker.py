@@ -18,10 +18,10 @@ class Clicker:
             self.click_sequence = click_sequence
 
     def start_clicking(self):
-        """Запускает процесс кликов в отдельном потоке."""
+        """Runs the click process in a separate thread."""
         if not self.is_clicking:
             self.is_clicking = True
-            self.click_count = 0  # Сбрасываем счетчик кликов
+            self.click_count = 0
             threading.Thread(target=self._click).start()
 
     def stop_clicking(self):
