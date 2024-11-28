@@ -1,0 +1,5 @@
+{
+    "waiting_time_to_first_click": 10,
+    "max_clicks": 25,
+    "interval": 0.5
+}
