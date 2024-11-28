@@ -1,5 +1,8 @@
 {
-    "waiting_time_to_first_click": 10,
+    "waiting_time_to_first_click": 5,
     "max_clicks": 25,
-    "interval": 0.5
+    "interval": 0.5,
+    "start_script": "ctrl+5",
+    "start_stop_button": "ctrl+6",
+    "close_program": "esc"
 }

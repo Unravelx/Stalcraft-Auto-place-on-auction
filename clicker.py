@@ -24,13 +24,18 @@ class Clicker:
             self.click_count = 0
             threading.Thread(target=self._click).start()
 
-    def stop_clicking(self):
-        """Stops the click process."""
-        self.is_clicking = False
+    def change_clicking(self):
+        """change the click process."""
+        if self.is_clicking is True:
+            self.is_clicking = False
+        else:
+            self.is_clicking = True
 
     def _click(self):
         """Method that performs clicks at a specified interval."""
-        while self.is_clicking and (self.max_clicks is None or self.click_count < self.max_clicks):
+        while self.max_clicks is None or self.click_count < self.max_clicks:
+            while not self.is_clicking:
+                time.sleep(0.5)
             self.click_count += 1
             print(f"Click #{self.click_count}")  # Logic for performing clicks
             for x, y in self.click_sequence:
@@ -41,13 +46,9 @@ class Clicker:
             time.sleep(5)
             time.sleep(self.interval)
 
+
             if self.max_clicks is not None and self.click_count >= self.max_clicks:
                 print("The maximum number of clicks has been reached.")
 
-    def set_interval(self, interval):
-        """Sets the interval between clicks."""
-        self.interval = interval
 
-    def get_click_count(self):
-        """Возвращает текущее количество кликов."""
-        return self.click_count
+
