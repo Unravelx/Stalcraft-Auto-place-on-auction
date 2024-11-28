@@ -1,4 +1,6 @@
 import json
+import time
+
 from clicker import Clicker
 
 
@@ -31,7 +33,9 @@ def main():
 
     if not (config["waiting_time_to_first_click"] == 0 or config["waiting_time_to_first_click"] is None):
         clicker.start_clicking()
+    else:
+        time.sleep(config["waiting_time_to_first_click"])
+        clicker.start_clicking()
 
-
-#if __name__ == "__main__":
-#    main()
+if __name__ == "__main__":
+    main()
